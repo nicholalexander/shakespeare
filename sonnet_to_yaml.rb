@@ -28,23 +28,34 @@ file = File.new("sonnets.txt", "r")
 file.each do |line|  
   
   if line.chomp.strip.empty?
+    counter == 0
     next
   end
-  
+
   if counter == 0
     sonnet_number = line.chomp.strip.to_i
-  elsif counter > 0 && counter < 15
+  else
     lines << line.chomp.strip
   end
-  
+
   counter += 1
 
-  if counter == 15
+  case sonnet_number
+  when 99
+    line_count = 16
+  when 126
+    line_count = 13
+  else
+    line_count = 15
+  end
+  
+  if counter == line_count
     sonnet = Sonnet.new(sonnet_number, lines)
     @sonnets << sonnet
     lines = []
     counter = 0
   end
+
 
 end
 file.close
