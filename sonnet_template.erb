@@ -5,7 +5,7 @@ title: Shakespeares Sonnets - Sonnet <%="#{@number}"%>
 <main class="pa3 pa5-ns">
   <p> <%= "#{@number}" %></p>
    <p class="f6 lh-copy measure">
-      <% @lines[0..-2].each do |line| %>
+      <% @lines[0..-3].each do |line| %>
       <%= "#{line}" %><br>
       <% end %><% @lines[-2..-1].each do |line|%>
       <span class="pa2"><%= "#{line}" %></span><br>

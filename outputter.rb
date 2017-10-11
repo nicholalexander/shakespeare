@@ -7,6 +7,13 @@ class Sonnet
     @number = number
     @lines = lines
   end
+
+  def serialize
+    {
+      number: "#{@number}",
+      lines: "#{@lines.to_json}"
+    }
+  end
 end
 
 file = File.open('sonnet_template.erb')
